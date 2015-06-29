@@ -6,3 +6,7 @@ Redmine::Plugin.register :redmine_whoiswho do
   url 'https://github.com/efigence/redmine_whoiswho'
   author_url 'https://github.com/efigence'
 end
+
+ActionDispatch::Callbacks.to_prepare do
+  require 'redmine_whoiswho/hooks/adding_bio'
+end
