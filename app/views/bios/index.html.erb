@@ -1,0 +1,14 @@
+<div class="splitcontentleft">
+  <% if @bios.any? %>
+  <div class="bios box">
+    <h3><%=l(:label_bios)%></h3>
+    <ul>
+    <% for bio in sorted(@bios) %>
+      <li>
+        <a href="<%= bio_path(bio.id) %>"><%= full_name(bio) %></a>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+</div>

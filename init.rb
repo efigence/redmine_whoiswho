@@ -5,8 +5,17 @@ Redmine::Plugin.register :redmine_whoiswho do
   version '0.0.1'
   url 'https://github.com/efigence/redmine_whoiswho'
   author_url 'https://github.com/efigence'
+
+  menu :top_menu,
+      :bios,
+      { :controller => 'bios', :action => 'index' },
+      :caption => 'Bios'
+
 end
 
 ActionDispatch::Callbacks.to_prepare do
   require 'redmine_whoiswho/hooks/adding_bio'
+  require 'redmine_whoiswho/patches/user_patch'
+  # require 'redmine_whoiswho/patches/users_controller_patch'
+  require 'redmine_whoiswho/patches/my_controller_patch'
 end
