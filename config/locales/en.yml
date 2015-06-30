@@ -2,3 +2,8 @@
 en:
   # my_label: "My label"
   label_bio: Bio
+  field_room: Room number
+  field_phone: Desk phone
+  field_mobile_phone: Mobile phone
+  field_profile: Profile
+  field_image: Profile picture

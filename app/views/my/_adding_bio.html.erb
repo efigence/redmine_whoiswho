@@ -1,4 +1,10 @@
 </fieldset>
 <fieldset class="box tabular">
-  <legend><%=l(:label_bio)%></legend>
-
+<legend><%=l(:label_bio)%></legend>
+<%= labelled_form_for Bio.new, html: { multipart: true } do |f| %>
+  <p><%= f.text_area :profile %></p>
+  <p><%= f.file_field :image %>
+  <p><%= f.text_field :room %></p>
+  <p><%= f.text_field :phone %></p>
+  <p><%= f.text_field :mobile_phone %></p>
+  <% end %>

@@ -6,7 +6,7 @@ class CreateBios < ActiveRecord::Migration
       t.column :room, :integer
       t.column :phone, :integer
       t.column :mobile_phone, :integer
-      t.column :description, :text
+      t.column :profile, :text
     end
     add_attachment :bios, :image
     add_index :bios, :user_id
