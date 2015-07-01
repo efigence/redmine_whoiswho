@@ -9,3 +9,5 @@ en:
   field_position: Position
   field_profile: Bio
   field_room: Room number
+  settings:
+    allowed_groups_to_use_whoiswho: Groups allowed to use Whoiswho

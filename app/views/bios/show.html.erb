@@ -2,7 +2,7 @@
   <div class="box">
     <h3><%= full_name(@bio)%></h3>
     <% if @bio.image_file_name %>
-      <p><%= image_tag(@bio.image.url(:large)) %></p>
+      <p><%= image_tag @bio.image.url(:large), :style => "border: 1px solid gray" %></p>
     <% end %>
     <p><%= @bio.profile %></p>
     <p><strong>Position: </strong><%= @bio.position %></p>

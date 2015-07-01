@@ -1,14 +1,26 @@
 <div class="splitcontentleft">
-  <% if @bios.any? %>
-  <div class="bios box">
-    <h3><%=l(:label_bios)%></h3>
-    <ul>
-    <% for bio in sorted(@bios) %>
-      <li>
-        <a href="<%= bio_path(bio.id) %>"><%= full_name_with_position(bio) %></a>
-      </li>
-      <% end %>
-    </ul>
+  <h3><%=l(:label_bios)%></h3>
+  <table class="list bios">
+    <thead><tr>
+      <th colspan="2">Name</th>
+      <th>Position</th>
+      <th>Room</th>
+      <th>Groups</th>
+    </tr></thead>
+    <tbody>
+      <% sorted_bios.each do |bio| %>
+        <tr id="bio-<%= h(bio.id) %>" class="hascontextmenu <%= cycle('odd', 'even') %>">
+          <td><% if bio.image_file_name %>
+            <%= image_tag bio.image.url(:small), :style => "border: 1px solid gray" %>
+          <% end %></td>
+            <td style="vertical-align: middle;">
+              <a href="<%= bio_path(bio.id) %>"><%= full_name(bio) %></a>
+            </td>
+            <td style="vertical-align: middle;"><%= bio.position %></td>
+            <td style="vertical-align: middle;"><%= bio.room %></td>
+            <td style="vertical-align: middle;"><%= showing_user_groups(bio) %></td>
+          </tr>
+          <% end %>
+      </tbody>
+    </table>
   </div>
-  <% end %>
-</div>
