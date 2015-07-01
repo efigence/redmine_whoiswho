@@ -16,6 +16,5 @@ end
 ActionDispatch::Callbacks.to_prepare do
   require 'redmine_whoiswho/hooks/adding_bio'
   require 'redmine_whoiswho/patches/user_patch'
-  # require 'redmine_whoiswho/patches/users_controller_patch'
   require 'redmine_whoiswho/patches/my_controller_patch'
 end

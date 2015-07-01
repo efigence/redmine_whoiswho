@@ -4,8 +4,8 @@ class CreateBios < ActiveRecord::Migration
     create_table :bios do |t|
       t.column :user_id, :integer, :null => false
       t.column :room, :integer
-      t.column :phone, :integer
-      t.column :mobile_phone, :integer
+      t.column :phone, :string
+      t.column :mobile_phone, :string
       t.column :profile, :text
       t.column :position, :string
     end
