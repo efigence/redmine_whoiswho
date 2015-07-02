@@ -1,6 +1,8 @@
 # English strings go here for Rails i18n
 en:
   # my_label: "My label"
+  button_search: Search
+  button_preview: Preview
   label_bio: Bio
   label_bios: Bios
   field_image: Bio picture

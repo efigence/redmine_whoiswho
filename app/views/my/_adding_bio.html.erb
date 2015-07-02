@@ -2,7 +2,7 @@
 <fieldset class="box tabular">
   <legend><%=l(:label_bio)%></legend>
   <% bio = user.bio || Bio.new(user: user) %>
-  <%= form.fields_for bio do |f| %>
+  <%= form.fields_for bio, remote: true do |f| %>
     <%= f.text_area :profile,
                           :rows => 8,
                           :accesskey => accesskey(:edit),

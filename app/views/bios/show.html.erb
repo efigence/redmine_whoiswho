@@ -1,15 +1,24 @@
-<div class="splitcontentleft">
+<div class="showbio">
   <div class="box">
-    <h3><%= full_name(@bio)%></h3>
-    <% if @bio.image_file_name %>
-      <p><%= image_tag @bio.image.url(:large), :style => "border: 1px solid gray" %></p>
-    <% end %>
-    <p><%= @bio.profile %></p>
-    <p><strong>Position: </strong><%= @bio.position %></p>
-    <p><strong>Room number: </strong><%= @bio.room %></p>
-    <p><strong>Email: </strong><%= @bio.user.mail %></p>
-    <p><strong>Desk phone: </strong><%= @bio.phone %></p>
-    <p><strong>Mobile phone: </strong><%= @bio.mobile_phone %></p>
-    <p><strong>Groups: </strong><%= showing_user_groups(@bio) %></p>
-  </div>
+    <div class="left" style="float: left; display: inline">
+        <h3><%= full_name(@bio)%></h3>
+        <p><%= @bio.position %></p>
+    </div>
+    <div class="right" style="float: right">
+        <% if @bio.image_file_name %>
+        <p><%= image_tag @bio.image.url(:large), :style => "border-radius:  50%;" %></p>
+        <% end %>
+    </div>
+    <div style="clear: both">
+        <p><%= @bio.profile %></p>
+        <p><strong>Groups: </strong><%= showing_user_groups(@bio) %></p>
+    </div>
+    </div>
+    <div class="box" style="clear: both">
+        <h4>Contact information</strong></h4>
+        <p><strong>Room number: </strong><%= @bio.room %></p>
+        <p><strong>Email: </strong><%= @bio.user.mail %></p>
+        <p><strong>Desk phone: </strong><%= @bio.phone %></p>
+        <p><strong>Mobile phone: </strong><%= @bio.mobile_phone %></p>
+    </div>
 </div>
