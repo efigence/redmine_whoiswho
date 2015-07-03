@@ -1,0 +1,20 @@
+en:
+  label_bio: Profil
+  label_bios: Profile
+  field_image: Zdjęcie profilowe
+  field_mobile_phone: Telefon komórkowy
+  field_phone: Telefon
+  field_position: Stanowisko
+  field_profile: Profil
+  field_room: Pokój
+  field_groups: Grupy
+  settings:
+    allowed_groups_to_use_whoiswho: Grupy mogące korzystać z Whoiswho
+  bio:
+    room: Pokój
+    phone: Telefon
+    mobile_phone: Telefon komórkowy
+    groups: Grupy
+    contact_info: Dane kontaktowe
+    edit_bio: Edytuj profil
+

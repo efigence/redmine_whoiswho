@@ -9,7 +9,7 @@ Redmine::Plugin.register :redmine_whoiswho do
   menu :top_menu,
   :bios,
   { :controller => 'bios', :action => 'index' },
-  :caption => 'Bios',
+  caption: :label_bios,
   :if => proc { User.current.logged? && (User.current.admin? || User.current.has_access?) }
 
   settings :default => {

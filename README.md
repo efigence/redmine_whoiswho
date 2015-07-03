@@ -1,4 +1,4 @@
-# Redmine Whoiswho plugin (work in progress - do not use)
+# Redmine Whoiswho plugin
 
 #### Plugin which adds users' bios.
 
@@ -13,6 +13,12 @@ Developed and tested on Redmine 3.0.3.
 3. Go back to root directory.
 4. `rake redmine:plugins:migrate RAILS_ENV=production`
 5. Restart Redmine.
+
+## Usage
+
+Admin should define which groups will be allowed to use Whoiswho plugin.
+
+Defined group members will be able to create their personal bios (including contact information). Bios menu button will direct them to list of all bios.
 
 
 ## License

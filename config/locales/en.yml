@@ -1,15 +1,19 @@
 # English strings go here for Rails i18n
 en:
   # my_label: "My label"
-  button_search: Search
-  button_preview: Preview
   label_bio: Bio
   label_bios: Bios
   field_image: Bio picture
   field_mobile_phone: Mobile phone
-  field_phone: Desk phone
+  field_phone: Phone
   field_position: Position
   field_profile: Bio
-  field_room: Room number
+  field_room: Room
   settings:
     allowed_groups_to_use_whoiswho: Groups allowed to use Whoiswho
+  bio:
+    room: Room
+    phone: Phone
+    mobile_phone: Mobile phone
+    edit_bio: Edit bio
+    contact_info: Contact information

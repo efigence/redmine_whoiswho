@@ -4,25 +4,25 @@
             <h3>
                 <%= full_name(@bio)%>
                 <% if @bio.user == User.current %>
-                    <%= link_to "Edit bio", my_account_path %>
+                    <%= link_to t('bio.edit_bio'), my_account_path, id: "edit_bio" %>
                 <% end %>
             </h3>
             <p><%= @bio.position %></p>
-
-            <% if @bio.image_file_name %>
-                <p><%= image_tag @bio.image.url(:large), :style => "border-radius:  50%;" %></p>
-            <% end %>
-
+            <p><%= image_tag @bio.image.url(:large), :style => "border-radius:  50%;" unless @bio.image_file_name.blank? %></p>
             <p><%= @bio.profile %></p>
-            <p><strong>Groups: </strong><%= showing_user_groups(@bio) %></p>
+            <% unless @bio.user.groups.blank? %>
+                <p><strong><%= t('bio.groups') %>: </strong></p>
+                <p><%= showing_user_groups(@bio) %></p>
+            <% end %>
         </div>
 
         <div class="panel-body">
-            <h4>Contact information</strong></h4>
-            <p><strong>Room number: </strong><%= @bio.room %></p>
-            <p><strong>Email: </strong><%= @bio.user.mail %></p>
-            <p><strong>Desk phone: </strong><%= @bio.phone %></p>
-            <p><strong>Mobile phone: </strong><%= @bio.mobile_phone %></p>
+            <h4><%= t('bio.contact_info') %></strong></h4>
+            <p><%= show_non_empty_fields t('bio.room'), @bio.room %></p>
+            <p><strong>Email: </strong></p>
+            <p><%= showing_user_mails(@bio) %></p>
+            <p><%= show_non_empty_fields t('bio.phone'), @bio.phone %></p>
+            <p><%= show_non_empty_fields t('bio.mobile_phone'), @bio.mobile_phone %></p>
         </div>
     </div>
 </div>
