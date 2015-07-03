@@ -1,0 +1,38 @@
+table.list td  {
+  vertical-align: middle;
+  text-align: left;
+  height: 32px;
+}
+
+table.list tbody {
+  cursor: pointer;
+}
+
+table.list tr  {
+  vertical-align: middle;
+  text-align: center;
+  height: 32px;
+}
+
+body {
+  background: gray;
+}
+
+.wrapper {
+  margin: 20px 38px;
+}
+
+.wrapper input {
+  width: 100%;
+  border-style: solid;
+  border-color: lightgray;
+  padding: 5px 10px 5px 26px;
+  margin-left: -18px;
+  background: url(../images/search-icon-glass.gif) no-repeat 7px center;
+}
+
+#eye {
+  width: 30px;
+  background: url(../images/eye-icon.png) no-repeat center;
+  background-size: 22px 22px;
+}

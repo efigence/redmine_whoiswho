@@ -7,6 +7,18 @@ module RedmineWhoiswho
 
           has_one :bio
 
+          def has_access?
+            !(user_ids & groups_with_access).blank?
+          end
+
+          def user_ids
+            User.current.groups.select('id').collect{|el| el.id.to_s}
+          end
+
+          def groups_with_access
+            Setting.plugin_redmine_whoiswho["groups"] || []
+          end
+
         end
       end
     end

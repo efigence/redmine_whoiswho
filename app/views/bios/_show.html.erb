@@ -1,0 +1,28 @@
+<div class="showbio">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>
+                <%= full_name(@bio)%>
+                <% if @bio.user == User.current %>
+                    <%= link_to "Edit bio", my_account_path %>
+                <% end %>
+            </h3>
+            <p><%= @bio.position %></p>
+
+            <% if @bio.image_file_name %>
+                <p><%= image_tag @bio.image.url(:large), :style => "border-radius:  50%;" %></p>
+            <% end %>
+
+            <p><%= @bio.profile %></p>
+            <p><strong>Groups: </strong><%= showing_user_groups(@bio) %></p>
+        </div>
+
+        <div class="panel-body">
+            <h4>Contact information</strong></h4>
+            <p><strong>Room number: </strong><%= @bio.room %></p>
+            <p><strong>Email: </strong><%= @bio.user.mail %></p>
+            <p><strong>Desk phone: </strong><%= @bio.phone %></p>
+            <p><strong>Mobile phone: </strong><%= @bio.mobile_phone %></p>
+        </div>
+    </div>
+</div>

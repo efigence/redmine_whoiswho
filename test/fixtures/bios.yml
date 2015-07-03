@@ -1,22 +1,8 @@
 ---
 bios_001:
-  user_id: 1
+  user_id: 2
   profile: 'Some text'
   position: 'Manager'
   room: 15
   phone: '(+48) 22 222 22 22'
   mobile_phone: '(+48) 543 210 987'
-bios_002:
-  user_id: 2
-  profile: 'Some more text'
-  position: 'Specialist'
-  room: 10
-  phone: '(+48) 22 222 22 21'
-  mobile_phone: '(+48) 543 210 986'
-bios_003:
-  user_id: 3
-  profile: 'Some more and more text'
-  position: 'Developer'
-  room: 1
-  phone: '(+48) 22 222 22 24'
-  mobile_phone: '(+48) 543 210 982'

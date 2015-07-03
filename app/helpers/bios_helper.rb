@@ -8,8 +8,4 @@ module BiosHelper
     bio.user.groups.map(&:lastname).sort.join(", ")
   end
 
-  def preview(bio)
-    link_to l(:button_preview), bio, :remote => true
-  end
-
 end

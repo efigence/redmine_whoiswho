@@ -20,6 +20,7 @@ class BiosController < ApplicationController
     @bio_pages = Paginator.new @bio_count, @limit, params['page']
     @offset ||= @bio_pages.offset
     @bios =  scope.order(sort_clause).limit(@limit).offset(@offset).to_a
+    @bio = User.current.bio
   end
 
   def show

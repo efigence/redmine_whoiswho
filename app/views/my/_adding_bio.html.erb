@@ -1,3 +1,5 @@
+<% if User.current.admin? || User.current.has_access? %>
+
 </fieldset>
 <fieldset class="box tabular">
   <legend><%=l(:label_bio)%></legend>
@@ -18,4 +20,6 @@
     <p><%= f.text_field :phone, :placeholder => "(+48) 22 xxx xx xx" %></p>
     <p><%= f.text_field :mobile_phone, :placeholder => "(+48) xxx xxx xxx"  %></p>
   <% end %>
+
+<% end %>
 
