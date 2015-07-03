@@ -30,13 +30,10 @@ GEM
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
     builder (3.2.2)
-    byebug (5.0.0)
-      columnize (= 0.9.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.7)
       climate_control (>= 0.0.3, < 1.0)
-    columnize (0.9.0)
     erubis (2.7.0)
     execjs (2.5.2)
     i18n (0.7.0)
@@ -96,7 +93,6 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 3.3.5)
-  byebug
   paperclip
   sass-rails (>= 3.2)
 
