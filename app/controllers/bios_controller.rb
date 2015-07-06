@@ -21,14 +21,13 @@ class BiosController < ApplicationController
     @offset ||= @bio_pages.offset
     @bios =  scope.order(sort_clause).limit(@limit).offset(@offset).to_a
     @bio = User.current.bio
+
   end
 
   def show
     @bio = Bio.find(params[:id])
 
     render :show, :layout => false if request.xhr?
-
   end
 
 end
-

@@ -1,28 +1,44 @@
 <div class="showbio">
     <div class="panel panel-default">
+
         <div class="panel-heading">
-            <h3>
-                <%= full_name(@bio)%>
-                <% if @bio.user == User.current %>
-                    <%= link_to t('bio.edit_bio'), my_account_path, id: "edit_bio" %>
+            <div class="row vertical-center">
+                <% unless @bio.image.blank? %>
+                    <div class="col-sm-6" style="width: 200px; margin-right: 10px">
+                        <%= image_tag @bio.image.url(:large),
+                            :style => "border-radius:  5px;" %>
+                    </div>
                 <% end %>
-            </h3>
-            <p><%= @bio.position %></p>
-            <p><%= image_tag @bio.image.url(:large), :style => "border-radius:  50%;" unless @bio.image_file_name.blank? %></p>
-            <p><%= @bio.profile %></p>
-            <% unless @bio.user.groups.blank? %>
-                <p><strong><%= t('bio.groups') %>: </strong></p>
-                <p><%= showing_user_groups(@bio) %></p>
-            <% end %>
+                <div class="col-sm-6">
+                    <h3 ><%= full_name(@bio)%></h3>
+                    <% if @bio.user == User.current %>
+                        <%= button_to t('bio.edit_bio'), my_account_path,
+                                    :class => 'btn btn-default',
+                                    :method => :get %>
+                    <% end %>
+                </div>
+            </div>
         </div>
 
-        <div class="panel-body">
+        <% unless empty_bio?(@bio) %>
+            <div class="panel-body">
+                <h4><%= t('bio.bio') %></h4>
+                <p><%= textilizable @bio, :profile %></p>
+                <p><%= show_non_empty_fields t('bio.position'), @bio.position %></p>
+                <% unless @bio.user.groups.blank? %>
+                    <p><strong><%= t('bio.groups') %>: </strong>
+                           <%= showing_user_groups(@bio) %></p>
+                <% end %>
+            </div>
+        <% end %>
+
+        <div class="panel-footer">
             <h4><%= t('bio.contact_info') %></strong></h4>
             <p><%= show_non_empty_fields t('bio.room'), @bio.room %></p>
-            <p><strong>Email: </strong></p>
-            <p><%= showing_user_mails(@bio) %></p>
+            <p><strong>Email: </strong><%= showing_user_mails(@bio) %></p>
             <p><%= show_non_empty_fields t('bio.phone'), @bio.phone %></p>
             <p><%= show_non_empty_fields t('bio.mobile_phone'), @bio.mobile_phone %></p>
         </div>
+
     </div>
 </div>

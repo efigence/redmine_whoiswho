@@ -18,7 +18,7 @@
 
     bindClick: function() {
       var self = this;
-      $('.splitcontentleft .list tr td').off('click').on('click', function(event) {
+      $('.splitcontentleft .table tr td').off('click').on('click', function(event) {
         var bio_path = $(event.target).parents('tr').data('path')
         self.preview(bio_path);
       });
@@ -31,8 +31,10 @@
             timeoutid = null;
 
       form.on('ajax:success', function(event, data){
-        var html = $(data).find('.splitcontentleft .list').html();
-        $('.splitcontentleft .list').empty().append(html);
+        var html = $(data).find('.splitcontentleft .table').html(),
+              scope = $(data).find('.pagination').html();
+        $('.splitcontentleft .table').empty().append(html);
+        $('.pagination').empty().append(scope);
         self.bindClick();
       });
 

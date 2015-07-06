@@ -14,8 +14,9 @@ module RedmineWhoiswho
               if params[:user] && params[:user][:bio].present?
                 bio = @user.bio || @user.build_bio
                 bio.safe_attributes = params[:user][:bio]
+                bio.remove_image = params[:user][:bio][:remove_image]
                 unless bio.save
-                  flash[:error] = 'yaaaa, kill them all'
+                  flash[:error] = 'Bio cannot be saved.'
                 end
               end
             end

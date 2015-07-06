@@ -1,6 +1,7 @@
 <% if User.current.admin? || User.current.has_access? %>
 
 </fieldset>
+
 <fieldset class="box tabular">
   <legend><%=l(:label_bio)%></legend>
   <% bio = user.bio || Bio.new(user: user) %>
@@ -14,6 +15,7 @@
     <p><%= f.file_field :image %>
     <% if bio.image_file_name %>
       <p><%= image_tag(bio.image.url(:small)) %></p>
+      <p><%= f.check_box("remove_image", options={}, checked_value="1", unchecked_value="0") %>
     <% end %>
     <p><%= f.text_field :position %></p>
     <p><%= f.text_field :room %></p>
@@ -22,4 +24,3 @@
   <% end %>
 
 <% end %>
-

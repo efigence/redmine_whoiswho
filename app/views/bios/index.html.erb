@@ -2,54 +2,62 @@
 
 <h2><%=l(:label_bios)%></h2>
 
-  <%= form_tag(bios_path, :method => :get, :id => "bios_search", :remote => true) do %>
-    <div class="wrapper">
-      <%= text_field_tag 'name', params[:name], :id => "query"%>
-    </div>
-  <% end %>
-  &nbsp;
+<%= form_tag(bios_path, :method => :get,
+                                         :id => "bios_search",
+                                         :remote => true) do %>
+  <div class="wrapper">
+    <%= text_field_tag 'name', params[:name], :id => "query"%>
+  </div>
+<% end %>
+&nbsp;
 
 <div>
-  <div class="splitcontentleft" style="width: 64%;">
-    <table class="list">
-      <thead><tr>
-        <th></th>
-        <%= sort_header_tag('users.firstname', :caption => l(:field_firstname)) %>
-        <%= sort_header_tag('users.lastname', :caption => l(:field_lastname)) %>
-        <%= sort_header_tag('position', :caption => l(:field_position)) %>
-        <%= sort_header_tag('room', :caption => l(:field_room)) %>
-        <th><%= t('bio.groups') %></th>
-        <th></th>
-      </tr></thead>
-      <tbody>
-        <% @bios.each do |bio| %>
-        <tr id="bio-<%= h(bio.id) %>" class="<%= cycle('odd', 'even') %>" data-path="<%= bio_path bio %>">
-          <td style="text-align: center">
-          <% if bio.image_file_name %>
-            <%= image_tag bio.image.url(:icon), :style => "border-radius: 50%;" %>
+  <div class="splitcontentleft">
+    <div class="panel panel-default">
+      <table class="table table-striped table-hover">
+        <thead><tr>
+          <th></th>
+          <%= sort_header_tag('users.firstname', :caption => l(:field_firstname)) %>
+          <%= sort_header_tag('users.lastname', :caption => l(:field_lastname)) %>
+          <%= sort_header_tag('position', :caption => l(:field_position)) %>
+          <%= sort_header_tag('room', :caption => l(:field_room)) %>
+          <th><%= t('bio.groups') %></th>
+          <th></th>
+        </tr></thead>
+        <tbody>
+          <% @bios.each do |bio| %>
+            <tr id="bio-<%= h(bio.id) %>",
+                  class="<%= cycle('odd', 'even') %>",
+                  data-path="<%= bio_path bio %>">
+              <td id="image">
+              <% if bio.image_file_name %>
+                <%= image_tag bio.image.url(:icon), :style => "border-radius: 5px;" %>
+              <% end %>
+              </td>
+              <td><%= bio.user.firstname %></td>
+              <td><%= bio.user.lastname %></td>
+              <td><%= bio.position %></td>
+              <td><%= bio.room %></td>
+              <td><%= showing_user_groups(bio) %></td>
+              <td id="eye"></td>
+            </tr>
           <% end %>
-          </td>
-          <td><%= bio.user.firstname %></td>
-          <td><%= bio.user.lastname %></td>
-          <td><%= bio.position %></td>
-          <td><%= bio.room %></td>
-          <td><%= showing_user_groups(bio) %></td>
-          <td id="eye"></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <p class="pagination"><%= pagination_links_full @bio_pages, @bio_count %></p>
+        </tbody>
+      </table>
+    </div>
+    <ul class="pagination"><li><%= pagination_links_full @bio_pages, @bio_count %><li></ul>
   </div>
 
-  <div class="splitcontentright" style="width: 35%;">
+  <div class="splitcontentright">
       <%= render partial: 'show' %>
   </div>
 </div>
 
 <% content_for :header_tags do %>
   <%= stylesheet_link_tag 'bios', :plugin => 'redmine_whoiswho' %>
+  <%= stylesheet_link_tag 'bootstrap', :plugin => 'redmine_whoiswho' %>
   <%= javascript_include_tag 'bios', :plugin => 'redmine_whoiswho' %>
+  <%= javascript_include_tag 'bootstrap', :plugin => 'redmine_whoiswho' %>
 <% end %>
 
 <% end %>

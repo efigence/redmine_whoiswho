@@ -1,34 +1,60 @@
-table.list td  {
-  vertical-align: middle;
-  text-align: left;
-  height: 32px;
+.btn btn-default {
+  float: right;
 }
 
-table.list tbody {
+#eye {
+  width: 40px;
+  background: url(../images/eye-icon.png) no-repeat center;
+  background-size: 22px 22px;
+}
+
+#image {
+  text-align: center;
+  width: 40px;
+}
+
+.panel-default > .panel-heading {
+  padding: 15px;
+}
+
+.panel-default > .panel-footer {
+  background-image: none;
+  background-color: white;
+}
+
+.table tr  {
+  vertical-align: middle;
+  text-align: left;
+  height: 47px;
+}
+
+.table tbody {
   cursor: pointer;
 }
 
-table.list tr  {
-  vertical-align: middle;
+.table th  {
   text-align: center;
-  height: 32px;
 }
 
-.wrapper {
-  margin: 20px 38px;
+.vertical-center {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .wrapper input {
   width: 100%;
-  border-style: solid;
-  border-color: lightgray;
+  border: 1px solid #ddd;
+  border-radius: 5px;
   padding: 5px 10px 5px 26px;
-  margin-left: -18px;
   background: url(../images/search-icon-glass.gif) no-repeat 7px center;
+  outline: none;
 }
 
-#eye {
-  width: 30px;
-  background: url(../images/eye-icon.png) no-repeat center;
-  background-size: 22px 22px;
+.splitcontentleft {
+  width: 64%;
+}
+
+.splitcontentright {
+  width: 35%;
 }

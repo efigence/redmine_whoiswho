@@ -1,4 +1,4 @@
-en:
+pl:
   label_bio: Profil
   label_bios: Profile
   field_image: Zdjęcie profilowe
@@ -6,6 +6,7 @@ en:
   field_phone: Telefon
   field_position: Stanowisko
   field_profile: Profil
+  field_remove_image: Usuń zdjęcie
   field_room: Pokój
   field_groups: Grupy
   settings:
@@ -17,4 +18,6 @@ en:
     groups: Grupy
     contact_info: Dane kontaktowe
     edit_bio: Edytuj profil
+    bio: Profil
+    position: Stanowisko
 

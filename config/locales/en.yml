@@ -8,6 +8,7 @@ en:
   field_phone: Phone
   field_position: Position
   field_profile: Bio
+  field_remove_image: Remove picture
   field_room: Room
   settings:
     allowed_groups_to_use_whoiswho: Groups allowed to use Whoiswho
@@ -17,3 +18,4 @@ en:
     mobile_phone: Mobile phone
     edit_bio: Edit bio
     contact_info: Contact information
+    bio: Bio

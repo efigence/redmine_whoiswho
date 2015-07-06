@@ -13,7 +13,11 @@ module BiosHelper
   end
 
   def show_non_empty_fields(label, value)
-    (content_tag(:strong, "#{label}: ") + content_tag(:p, "#{value}")) unless value.blank?
+    (content_tag(:p, "<strong>#{label}: </strong>#{value}".html_safe)) unless value.blank?
+  end
+
+  def empty_bio?(bio)
+    !(bio.profile && bio.position && bio.user.groups)
   end
 
 end
