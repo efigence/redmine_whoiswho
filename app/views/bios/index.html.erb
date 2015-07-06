@@ -1,10 +1,8 @@
-<% if User.current.admin? || User.current.has_access? %>
-
 <h2><%=l(:label_bios)%></h2>
 
 <%= form_tag(bios_path, :method => :get,
-                                         :id => "bios_search",
-                                         :remote => true) do %>
+                                        :id => "bios_search",
+                                        :remote => true) do %>
   <div class="wrapper">
     <%= text_field_tag 'name', params[:name], :id => "query"%>
   </div>
@@ -49,7 +47,9 @@
   </div>
 
   <div class="splitcontentright">
+    <% if @bio %>
       <%= render partial: 'show' %>
+    <% end %>
   </div>
 </div>
 
@@ -58,7 +58,5 @@
   <%= stylesheet_link_tag 'bootstrap', :plugin => 'redmine_whoiswho' %>
   <%= javascript_include_tag 'bios', :plugin => 'redmine_whoiswho' %>
   <%= javascript_include_tag 'bootstrap', :plugin => 'redmine_whoiswho' %>
-<% end %>
-
 <% end %>
 

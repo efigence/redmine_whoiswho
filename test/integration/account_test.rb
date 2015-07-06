@@ -16,14 +16,21 @@ class AccountTest < Redmine::IntegrationTest
     assert_select '#user_bio_profile', false
   end
 
-  def test_not_permitted_group_should_not_see_bios_path
+  def test_not_permitted_group_should_be_redirected_from_bios_path
     log_user('jsmith', 'jsmith')
     get bios_path
-    assert_response :success
-    assert_select '#query', false
+    assert_response :redirect
+    assert_redirected_to home_path
   end
 
-  def test_permitted_group_should_edit_bio_in_my_account
+  def test_not_permitted_group_should_be_redirected_from_bio_path
+    log_user('jsmith', 'jsmith')
+    get '/bios/1'
+    assert_response :redirect
+    assert_redirected_to home_path
+  end
+
+  def test_permitted_group_should_access_and_edit_bio_in_my_account
     log_user('dlopper', 'foo')
     get '/my/account'
     assert_response :success
@@ -33,13 +40,19 @@ class AccountTest < Redmine::IntegrationTest
     user.bio.profile = "New text"
     user.save
     assert_equal "New text", user.bio.profile
-
   end
 
   def test_permitted_group_should_see_bios_path
     log_user('dlopper', 'foo')
     get bios_path
     assert_response :success
+    assert_select '#eye'
+  end
+
+  def test_permitted_group_should_not_see_bio_path
+    log_user('dlopper', 'foo')
+    get '/bios/1'
+    assert_response :missing
   end
 
 end

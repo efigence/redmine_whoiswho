@@ -5,7 +5,7 @@ module BiosHelper
   end
 
   def showing_user_groups(bio)
-    bio.user.groups.map(&:lastname).sort.join(", ")
+    bio.user.groups.pluck(:lastname).sort.join(", ")
   end
 
   def showing_user_mails(bio)
@@ -17,7 +17,7 @@ module BiosHelper
   end
 
   def empty_bio?(bio)
-    !(bio.profile && bio.position && bio.user.groups)
+    !(bio.profile || bio.position || bio.user.groups)
   end
 
 end
