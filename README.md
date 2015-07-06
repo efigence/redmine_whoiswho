@@ -1,4 +1,4 @@
-# Redmine Whoiswho plugin
+# Redmine Whoiswho plugin [![Build Status](https://travis-ci.org/efigence/redmine_whoiswho.svg?branch=master)](https://travis-ci.org/efigence/redmine_whoiswho)
 
 #### Plugin which adds users' bios.
 
