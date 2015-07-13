@@ -20,6 +20,7 @@ Redmine::Plugin.register :redmine_whoiswho do
       require 'redmine_whoiswho/hooks/adding_bio'
       require 'redmine_whoiswho/patches/user_patch'
       require 'redmine_whoiswho/patches/my_controller_patch'
+      require 'redmine_whoiswho/patches/users_controller_patch'
   end
 
 end
