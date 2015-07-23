@@ -10,7 +10,7 @@ module RedmineWhoiswho
           private
 
           def save_bio
-            if params[:user] && params[:user][:bio].present?
+            if @user.save && params[:user] && params[:user][:bio].present?
               bio = @user.bio || @user.build_bio
               bio.safe_attributes = params[:user][:bio]
               bio.remove_image = params[:user][:bio][:remove_image]
